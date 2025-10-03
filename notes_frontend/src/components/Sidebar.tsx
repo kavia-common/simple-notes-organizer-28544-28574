@@ -9,7 +9,7 @@ import React from "react";
 export default function Sidebar(): React.ReactElement {
   return (
     <aside aria-label="Sidebar navigation" style={{ display: "none" }}>
-      {/* Future: categories, filters, profile */}
+      {/* Figma Home screen shows no visible sidebar. Retained for future use. */}
     </aside>
   );
 }

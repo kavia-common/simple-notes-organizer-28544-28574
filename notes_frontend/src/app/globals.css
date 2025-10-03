@@ -51,6 +51,10 @@
   --card-title-size:16px;
   --card-title-line:1.4;
   --card-title-weight:600;
+
+  /* Focus ring */
+  --focus-ring: 2px solid var(--accent);
+  --focus-ring-offset: 2px;
 }
 
 /* Base reset */
@@ -60,9 +64,22 @@ html,body{
   padding:0;
   max-width:100vw;
   overflow-x:hidden;
-  background:var(--bg-canvas); /* maintain visual parity with provided design */
+  background:var(--bg-canvas); /* match design */
   color:var(--text-primary);
   font-family:var(--font-sans);
+}
+
+/* Visually hidden utility for screen-reader-only content */
+.sr-only{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important;
 }
 
 /* Utility containers derived from assets */
@@ -73,6 +90,7 @@ html,body{
   align-items:center;
 }
 
+/* Header */
 .app-header{
   width:100%;
   max-width:var(--container-max);
@@ -117,8 +135,12 @@ html,body{
 }
 .icon-button:hover{ background:rgba(255,255,255,0.08) }
 .icon-button:active{ transform:translateY(1px) }
-.icon-button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px }
+.icon-button:focus-visible{
+  outline:var(--focus-ring);
+  outline-offset:var(--focus-ring-offset);
+}
 
+/* Notes list */
 .notes-list{
   width:100%;
   max-width:var(--container-max);
@@ -128,6 +150,7 @@ html,body{
   gap:var(--space-16);
 }
 
+/* Note card */
 .note-card{
   width:100%;
   border-radius:var(--border-radius-card);
@@ -151,7 +174,10 @@ html,body{
 
 .note-card:hover{ transform:translateY(-1px) }
 .note-card:active{ transform:translateY(0) }
-.note-card:focus-visible{ outline:2px solid var(--accent); outline-offset:2px }
+.note-card:focus-visible{
+  outline:var(--focus-ring);
+  outline-offset:var(--focus-ring-offset);
+}
 
 .note-title{
   margin:0;
@@ -165,6 +191,7 @@ html,body{
   overflow:hidden;
 }
 
+/* Floating Action Button */
 .fab{
   position:fixed;
   right:var(--space-24);
@@ -185,7 +212,10 @@ html,body{
 }
 .fab:hover{ transform:translateY(-2px); filter:brightness(1.05) }
 .fab:active{ transform:translateY(0) scale(0.98) }
-.fab:focus-visible{ outline:3px solid rgba(108,99,255,0.6); outline-offset:3px }
+.fab:focus-visible{
+  outline:3px solid rgba(108,99,255,0.6);
+  outline-offset:3px;
+}
 
 /* Responsive tweaks */
 @media (min-width:480px){

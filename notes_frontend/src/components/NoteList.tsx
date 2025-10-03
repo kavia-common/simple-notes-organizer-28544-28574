@@ -14,7 +14,7 @@ export default function NoteList(): React.ReactElement {
     bg: NoteCardBg;
   };
 
-  const notes: NoteItem[] = [
+  const notes: Array<NoteItem> = [
     {
       title: "Book Review : The Design of Everyday Things by Don Norman",
       size: "size-lg",
@@ -31,7 +31,16 @@ export default function NoteList(): React.ReactElement {
   };
 
   return (
-    <main className="notes-list" role="main" aria-label="Notes list">
+    <main
+      className="notes-list"
+      role="main"
+      aria-label="Notes list"
+      aria-describedby="notes-list-help"
+    >
+      <span id="notes-list-help" className="sr-only" aria-hidden="true">
+        List of notes. Activate a card to open the note.
+      </span>
+
       {notes.map((n, idx) => (
         <NoteCard
           key={`${n.title}-${idx}`}

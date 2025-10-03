@@ -41,6 +41,7 @@ export default function NoteCard({
       tabIndex={0}
       role="button"
       aria-label={title}
+      aria-roledescription="Open note"
       onClick={onClick}
       onKeyDown={handleKeyDown}
     >
