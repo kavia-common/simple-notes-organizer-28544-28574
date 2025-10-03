@@ -1,9 +1,17 @@
-export default function Home() {
+import Header from "@/components/Header";
+import NoteList from "@/components/NoteList";
+import Fab from "@/components/Fab";
+
+/**
+ * PUBLIC_INTERFACE
+ * Landing page that renders the Notes home screen based on provided assets.
+ */
+export default function Home(): React.ReactElement {
   return (
-    <main className="min-h-screen bg-white flex items-center justify-center">
-      <h1 className="text-black text-4xl font-light">
-        notes_frontend is being generated
-      </h1>
-    </main>
+    <div className="app">
+      <Header />
+      <NoteList />
+      <Fab />
+    </div>
   );
 }
